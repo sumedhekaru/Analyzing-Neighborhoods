@@ -130,7 +130,7 @@ My next step was to find additional data for each neighborhood. For this section
 
 	
   
-  ![](/report/Battle_of_Neighborhood_V2_files/add_data.png)
+![](/report/Battle_of_Neighborhood_V2_files/add_data.png)
 
            
 I noticed that Nominatim doesn't always give a valid address for some
