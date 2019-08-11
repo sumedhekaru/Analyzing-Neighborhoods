@@ -114,7 +114,7 @@ future, I can still re-run the scripts to find the latest data. The following fi
   \label{fig:wiki_page}
 \end{figure}
 
-![test]({{ site.url }}/Battle_of_Neighborhood_V2_files/wiki_page.png)
+![test]({{https://sumedhekaru.github.io/Coursera_Capstone}}/Battle_of_Neighborhood_V2_files/wiki_page.png)
 
 After downloading the data, the I created a pandas data frame. and the data frame looked like below. Notice that this is only showing the first five rows of the data for the  illustrative purposes. Numerical data are converted into int and float data types rather than having object types. Comparing the wikipedia sample above and pandas data frame below, one can identify that all the required data were downloaded properly using BeautifulSoup.
 
