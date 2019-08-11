@@ -1,8 +1,31 @@
 ## Welcome to GitHub Pages
 
-You can use the [editor on GitHub](https://github.com/sumedhekaru/Coursera_Capstone/edit/master/README.md) to maintain and preview the content for your website in Markdown files.
+This is a data science project to find the best neighborhood to live in a faraway city. This project deals with unlabeled data, due to that reason I used an unsupervised algorithm, namely the K-mean algorithm. This project is an excellent example of how effective the K-mean algorithm clustering unlabeled data.
 
-Whenever you commit to this repository, GitHub Pages will run [Jekyll](https://jekyllrb.com/) to rebuild the pages in your site, from the content in your Markdown files.
+# What is the problem?
+
+I work in downtown Memphis, TN. In general, I live 30 mins away from
+work, when there is no traffic. However, since I am commuting when most
+of the people are commuting to there work, there is almost always
+traffic on the roads. So it is easily 45-60 mins one-way trip. Being
+optimistic, considering one-way is 45 mins, it is 90 mins for a round
+trip. For a week with 5 workdays, it is 7.5 hours, for a month it is 30
+hours, for a year it is 16 days. So for a given year, I am wasting full
+16 days counting days and nights riding my car wasting my time.
+
+I am planning to move St.~Louis, Missouri for a new job offer. While I
+have a friend already living there, I would like to do my analysis and
+find out where I can move. But driving time is something I strongly want
+to reduce.
+
+** So the problem is, where I should move to save some time from
+driving but still have good amenities such as restaurants, cafes, parks,
+shopping, etc within reachable distance. **
+
+Also, one of the jobs I was being interviewed is in St.~Louis, Illinois.
+I want to do a similar analyze there to find out if I can find a good
+neighborhood to live.
+
 
 ### Markdown
 
