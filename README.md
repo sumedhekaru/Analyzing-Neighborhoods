@@ -1,6 +1,8 @@
 This is a data science project to find the best neighborhood to live in a faraway city. This project deals with unlabeled data, due to that reason I used an unsupervised algorithm, namely the K-mean algorithm. This project is an excellent example of how effective the K-mean algorithm clustering unlabeled data.
 
-# What is the problem?
+## Introduction - Five Ws
+
+### What is the problem?
 
 I work in downtown Memphis, TN. In general, I live 30 mins away from
 work, when there is no traffic. However, since I am commuting when most
@@ -25,21 +27,20 @@ I want to do a similar analyze there to find out if I can find a good
 neighborhood to live.
 
 
-## Where is this?
+### Where is this?
 It is St.~Louis, Missouri, where birds sing and elephants bath, just
 kidding. But it sure looks like a fantastic place to live. There are
 tons of things to do around there. The population was roughly 300 k and
 rising. The job market seams great too.
 
-## When is this applicable?
+### When is this applicable?
 I know this is a changing world! The time will change everything. The
 time of this analysis is August 2019. So don't blame me if you decided
 to move based on this data analysis in 2050. But the good thing is, I
 developed the program to pull the latest data. So if you re-run the
 program in 2050, you should be (may be\ldots{}) fine?
 
-\hypertarget{why-do-we-do-this}{%
-\subsection{Why do we do this?}\label{why-do-we-do-this}}
+### Why do we do this?
 
 It is to primarily to save time when I move. I am currently spending so
 much time on the road, 16 full days per year! just to commute. People
@@ -50,8 +51,7 @@ someone paying me when I save my own time? Ney.. I will use this saved
 time to play with my daughters. Not everything is money. I think I have
 bipolar disorder.
 
-\hypertarget{who-cares}{%
-\subsection{Who cares?}\label{who-cares}}
+### Who cares?
 
 Do you even here me? It is to save money (really the time) while finding
 the best neighborhood to live. If you are someone who cares about saving
@@ -60,8 +60,7 @@ that you don't know what to do, this is not for you. You should spend
 some money buying a boat and traveling the world instead of reading
 this.
 
-\hypertarget{data}{%
-\section{Data}\label{data}}
+## Data
 
 We need data to do our analysis. This section will gather all the
 required data and do the clean-up job so that the data are usable. I am
@@ -69,10 +68,7 @@ hoping to gather neighborhood names from Wikipedia (use web scraping
 with BeautifulSoup package) and use FourSquare to obtain point of
 interest around the selected neighborhoods.
 
-\begin{enumerate}
-\def\labelenumi{\arabic{enumi}.}
-\item
-  St.~Louis Neighborhoods - The names of the St.~Louis neighborhoods
+  1. St.~Louis Neighborhoods - The names of the St.~Louis neighborhoods
   will be obtained from the Wikipedia page
   https://en.wikipedia.org/wiki/List\_of\_neighborhoods\_of\_St.\_Louis.
   This page has neighborhoods of the St.~Louis along with some
@@ -80,14 +76,10 @@ interest around the selected neighborhoods.
   really need is the names of the neighborhoos so that I can find the
   address, latitude, longitude, nearby point of interest details using
   FourSquare module.
-\item
-  As mentioned before, I am going to use FourSquare to obtain point of
-  interest data.
-\end{enumerate}
+1.  As mentioned before, I am going to use FourSquare to obtain point of
+  interest data
 
-    \hypertarget{load-the-required-libraries.}{%
-\subsection{Load the required
-libraries.}\label{load-the-required-libraries.}}
+### Load equired libraries.
 
 I will start by importing some libraries. These libraries are not
 necessary to use in this section. But to keep it clean, I always like to
