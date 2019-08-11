@@ -108,48 +108,22 @@ Wikipedia page. I used Beautiful Soup to scrape the data out
 from this page. That way, if the neighborhood list is updated in the
 future, I can still re-run the scripts to find the latest data. The following figure shows a screen shot of the sample of the data table.
 
-\begin{figure}[h!]
-  \includegraphics{Battle_of_Neighborhood_V2_files/wiki_page.png}
-  \caption{A part of Wikipedia page that scoop neighborhood data}
-  \label{fig:wiki_page}
-\end{figure}
-
-![test]({{https://sumedhekaru.github.io/Coursera_Capstone}}/Report/Battle_of_Neighborhood_V2_files/wiki_page.png)
-
-<img src='/Report/Battle_of_Neighborhood_V2_files/wiki_page.png'>
-
-![test](/Report/Battle_of_Neighborhood_V2_files/wiki_page.png)
+![](/Report/Battle_of_Neighborhood_V2_files/wiki_page.png)
 
 After downloading the data, the I created a pandas data frame. and the data frame looked like below. Notice that this is only showing the first five rows of the data for the  illustrative purposes. Numerical data are converted into int and float data types rather than having object types. Comparing the wikipedia sample above and pandas data frame below, one can identify that all the required data were downloaded properly using BeautifulSoup.
 
-
-\begin{center}
-\begin{figure}[h!]
-  \includegraphics{Battle_of_Neighborhood_V2_files/data_read_wiki_table.png}
-  % \caption{A part of Wikipedia page that scoop neighborhood data}
-  % \label{fig:wiki_page}
-\end{figure}
-\end{center}
+![](/Report/Battle_of_Neighborhood_V2_files/data_read_wiki_table.png)
 
 Notice that according to the table above, St. Louis has three regions, north, south, and central. Since the demographic data are there, it made sense to do an initial analysis of those data to find demographic concentration on each of these regions. I decided to find the average percentages of different ethnic groups living in each region mentioned above.
 
 Following data table shows the average percentages in each corridor/region. It looks like most white people live in South side has more white people, north side is dominated by black people, Asian tends to go in the Central region. 
 
-\begin{center}
-\begin{figure}[h!]
-  \includegraphics{Battle_of_Neighborhood_V2_files/avg_table.png}
-  % \caption{A part of Wikipedia page that scoop neighborhood data}
-  % \label{fig:wiki_page}
-\end{figure}
-\end{center}
+![](/Report/Battle_of_Neighborhood_V2_files/avg_table.png)
 
             
 This tabular data can be nicely visualize using a bar chart as shown below. With that graph it is much clear that white people dominate in north while the black people dominate in the south. The central region is almost equally distributed by both ethnicity. Other ethnic groups are not dominating in any region and create very small contributions.
 
-    \begin{center}
-    \adjustimage{max size={0.9\linewidth}{0.9\paperheight}}{Battle_of_Neighborhood_V2_files/Battle_of_Neighborhood_V2_17_0.png}
-    \end{center}
-    
+![](/Report/Battle_of_Neighborhood_V2_files/Battle_of_Neighborhood_V2_17_0.png)
     
 ### Obtain the latitude, longitude, address, and miles to
 work for each
@@ -158,12 +132,11 @@ neighborhood}\label{obtain-the-latitude-longitude-address-and-miles-to-work-for-
 My next step was to find additional data for each neighborhood. For this section, I found Latitude, Longitude, Address, and Distance to the workplace. For this, I created a python function that will give me a pandas data frame with all the information mentioned. Following is a sample of the data frame generated using five random rows of data.
 
 	
-    \begin{center}
-    \adjustimage{max size={0.9\linewidth}{0.9\paperheight}}{Battle_of_Neighborhood_V2_files/add_data.png}
-    \end{center}
+  
+  ![](\report\Battle_of_Neighborhood_V2_files/add_data.png)
 
            
-    I noticed that Nominatim doesn't always give a valid address for some
+I noticed that Nominatim doesn't always give a valid address for some
 neighborhoods. This behavior can be improved by including the city and
 the state with the search query. For the case of St.~Louis, I got all
 the address. But in case incomplete data are there, I decided to drop
@@ -172,7 +145,7 @@ address. Because the number of neighborhoods without the addresses may
 not be many and additional information may not not worth the time spend
 for this case.
 
-    I also noticed that some times there were several neighborhoods was
+I also noticed that some times there were several neighborhoods was
 identified by the Nomitatim is not even belongs to the state I am
 searching. I am not sure the reason for these, but I think somehow
 nominatim is not registering the city and the state of the search query.
@@ -181,40 +154,33 @@ However, since I am not interested in any neighborhood more than 30
 miles, I can just get rid of those, which should automatically take care
 of out of the state neighborhoods.
 
-      After both of the above processes, the number of neighborhoods still stayed 77.
+After both of the above processes, the number of neighborhoods still stayed 77.
 That means Nominatim actually did a wonderful job of searching the
 addresses of our neighborhoods. 
 
              
 ### Obtain venues around each neighborhood
 
- 	After finding the coordinates, I wanted to find good amenities around each neighborhood. I was using Fooursquare api for that. I have a free account with them which
+After finding the coordinates, I wanted to find good amenities around each neighborhood. I was using Fooursquare api for that. I have a free account with them which
 allow me to make 100 k free requests per day. I definitely acknowledge
 their service. I crated another important function accomplish this. What this function does is produce a data frame that contains the information nearby amenities, up to a 100 of those. Following data frame is the result of this function.
 
-    
-   \begin{center}
-    \adjustimage{max size={0.99\linewidth}{0.9\paperheight}}{Battle_of_Neighborhood_V2_files/foursquare.png}
-    \end{center}
+
+![](/Report/Battle_of_Neighborhood_V2_files/foursquare.png)
    
             
-    It looks like the function returned information about 811 venues while above table is only showing 5 venues. But it is interesting to know how many venues for each neighborhood have. I created new data frame using pandas group by function to above data frame by grouping with the Neighborhood column.  This found the total number of amenities around each neighborhood. Since I also like to know the distance from each neighborhood, I added that information to a data frame first.
+It looks like the function returned information about 811 venues while above table is only showing 5 venues. But it is interesting to know how many venues for each neighborhood have. I created new data frame using pandas group by function to above data frame by grouping with the Neighborhood column.  This found the total number of amenities around each neighborhood. Since I also like to know the distance from each neighborhood, I added that information to a data frame first.
 
-\begin{center}
-    \adjustimage{max size={0.5\linewidth}{0.9\paperheight}}{Battle_of_Neighborhood_V2_files/sum_venues.png}
-    \end{center}
-
+![](/Report/Battle_of_Neighborhood_V2_files/sum_venues.png)
             
 I plotted data to and see how the results look like. I created bar graph of
 Neighborhood vs. Total number of Venues. Since I am interested about the distance to work, I displayed miles to work on top of each bar.
 
-
-    \begin{center}
-    \adjustimage{max size={0.99\linewidth}{0.9\paperheight}}{Battle_of_Neighborhood_V2_files/Battle_of_Neighborhood_V2_37_0.png}
-    \end{center}
+    
+![]{/Report/Battle_of_Neighborhood_V2_files/Battle_of_Neighborhood_V2_37_0.png)
    
     
-    According to the graph, it is clear that the top place for a lot of
+According to the graph, it is clear that the top place for a lot of
 amenities is Central West End which is only 3.3 miles away. Then there
 is Downtown, Downtown West, etc. But the distance is not the only thing
 I am looking at. I found that we had these venues belongs to 177 different unique categories.
@@ -222,7 +188,7 @@ I am looking at. I found that we had these venues belongs to 177 different uniqu
 
 ### Analyze Each Neighborhood to find how many unique catogories are belongs to each neighborhood
 
-    My goal was to find the best neighborhood that has so many different
+My goal was to find the best neighborhood that has so many different
 amenities close by. I was planning to use the k-means algorithm. For
 that, I wanted to create another data frame that has all our
 neighborhoods in the first column and frequency of different categories
@@ -231,7 +197,7 @@ number of different categories I found from the previous section + 1
 (for the Neighborhood name column). Let's creae a dummy data frame and
 then we will fill the fields with the mean.
           
-    It turns out that different neighborhoods have different strength as the
+It turns out that different neighborhoods have different strength as the
 top comment venue for each neighborhood is different. For example, if
 you are a person who likes Music you might want to go to Belleair, but
 if you are someone you want to access to the gym every day, you might
@@ -239,12 +205,10 @@ find Bunker Hill is better. Did I lose you for a moment? Ok, let me show
 what I mean. Let me show you what are the best 10 common venues near
 each neighborhood. See below.
 
- \begin{center}
-    \adjustimage{max size={0.99\linewidth}{0.9\paperheight}}{Battle_of_Neighborhood_V2_files/10th_best.png}
-    \end{center}
 
-   ]         
-    I think by looking at the table above you might understand that
+![](/Report/Battle_of_Neighborhood_V2_files/10th_best.png)
+
+I think by looking at the table above you might understand that
 different neighborhoods have different amenities strength. The best
 neighborhood depends on which kind of amenities are around you and what
 your choises are.
@@ -255,7 +219,7 @@ of the data. Let's move on to real machine learning.
 
 ## Methodology - K-means Clustering
 
-    For this study, I used K-means clustering algorithm. Since we
+For this study, I used K-means clustering algorithm. Since we
 have unlabeled data, I think this will be a very good starting point to
 do an unsupervised algorithm. However, I was not 100 \% sure how many
 clusters to choose. I needed to do some calculations to find the best number
@@ -265,11 +229,11 @@ of clusters
 
 One way to find the right number of for k is use of elbow method. I started from K = 1 and go up to K = 10 and did k-mean clustering for each K value. To find the best K value, I compared the resulted inertia or within-cluster sum-of-squares value. The following figure shows the Inertia vs k value plot.
 
-    \begin{center}
-    \adjustimage{max size={0.9\linewidth}{0.9\paperheight}}{Battle_of_Neighborhood_V2_files/Battle_of_Neighborhood_V2_54_0.png}
-    \end{center}
+
+ 
+ ![](/Report/Battle_of_Neighborhood_V2_files/Battle_of_Neighborhood_V2_54_0.png)
     
-    As the number of clusters increases, the centroids becomes closer to
+As the number of clusters increases, the centroids becomes closer to
 their clusters. This makes the distortion decrease as you increase K.
 You will get he minimum distortion when the number of clusters is
 exactly equal to the number of data points. At that case the distortion becomes exactly
@@ -291,9 +255,8 @@ all data points in the map. Just wait for it.
 
 Nothing beats to the interactive map of the different neighborhoods. Folium is great at producing an interactive map. Following figure showing an image of the map produced. Different color dots in the map represent the location of neighborhoods analyzed. The colors correspond to different k-mean groups. The balloon icon close to the middle of the map is showing us the location of my workplace. 
 
-\begin{center}
-    \adjustimage{max size={0.99\linewidth}{0.9\paperheight}}{Battle_of_Neighborhood_V2_files/map1.png}
-    \end{center}
+
+![](/Report/Battle_of_Neighborhood_V2_files/map1.png)
     
 The map showing above was highly interactive. One can zoom the map to see more details around a particular neighborhood. If you click on a colored dot, it can tell you the information about that particular point. I programmed so that when you click on a point it will show us the name of the neighborhood, cluster id, and distance to work. In the figure above, I clicked on the neighborhood 'Baden'. This neighborhood belongs to category 1 and situated in 6.48 miles from my prospective workplace.
     
@@ -339,11 +302,10 @@ categories by K-means.
 Let's investigate these three categories (cluster labels) in more details by averaging
 different numbers of data.
 
-\begin{center}
-    \adjustimage{max size={0.80\linewidth}{0.9\paperheight}}{Battle_of_Neighborhood_V2_files/avg_cluster_res.png}
-    \end{center}
+    
+ ![](/Report/Battle_of_Neighborhood_V2_files/avg_cluster_res.png)
             
-    Notice that, I did not give the demographic data as input. The reason I
+Notice that, I did not give the demographic data as input. The reason I
 didn't do it because original data suggested that different ethnic
 groups are already concentrated into some parts of the town, north
 -black, south -white, center -mixed. But it very interesting to notice
@@ -362,14 +324,9 @@ venues.}
 
 Let's try to visualize this graphically. I created a bar graph, similar to the one I created during the data section of documents. But this time, other than showing the miles to work on top of each bar, I like to color the bars to show the different groups, as shown in the figure bellow.
 
-
-
-    \begin{center}
-    \adjustimage{max size={0.99\linewidth}{0.9\paperheight}}{Battle_of_Neighborhood_V2_files/Battle_of_Neighborhood_V2_66_1.png}
-    \end{center}
-    { \hspace*{\fill} \\}
+![](/Report/Battle_of_Neighborhood_V2_files/Battle_of_Neighborhood_V2_66_1.png)
     
-    Since I like group 2 and closer distance to work, I would choose
+Since I like group 2 and closer distance to work, I would choose
 Downtown as my top spot which has 50+ closeby venues and only half a
 mile away from the work. If I do not like it, then I go for Downtown
 West, Forest Park South East, etc.
@@ -398,7 +355,7 @@ included in the study.
 
 ## Conclusion
 
-    Using publicly available data and K-mean machine learning algorithm, I
+Using publicly available data and K-mean machine learning algorithm, I
 was able to find several prospective neighborhoods. It is incredible
 that without visiting a faraway town, we can do a detailed analysis.
 
