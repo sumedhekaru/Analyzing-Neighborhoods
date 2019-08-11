@@ -86,22 +86,19 @@ necessary to use in this section. But to keep it clean, I always like to
 have all my libraries are loaded at the top of the program. That way I
 know which modules I have used in this project.I have used the following libraries in this project.
 
-\begin{enumerate}
-\item BeautifulSoup - To scoop data from web
-\item Geocoders - To obtain the address of neighborhoods
-\item Folium - To obtain the information of venues around specific point of interest
-\item pandas - To manage and manipulate data frames
-\item requests - To download web pages
-\item numpy - To do various calculations
-\item matplotlib - To do various plotting applications
-\item json - To decode web request data
-\item sklearn - To do machine learning algorithms
-\end{enumerate}
-\newpage
+1. BeautifulSoup - To scoop data from web
+1. Geocoders - To obtain the address of neighborhoods
+1. Folium - To obtain the information of venues around specific point of interest
+1. pandas - To manage and manipulate data frames
+1. requests - To download web pages
+1. numpy - To do various calculations
+1. matplotlib - To do various plotting applications
+1. json - To decode web request data
+1. sklearn - To do machine learning algorithms
+
     
-\hypertarget{get-the-neighborhood-names}{%
-\subsection{Get the neighborhood
-names}\label{get-the-neighborhood-names}}
+## Get the neighborhood
+
 
 We are going to analyze neighborhoods of St.~Louis, Missouri. There
 could be multiple sources that I could get this information about
@@ -148,8 +145,7 @@ This tabular data can be nicely visualize using a bar chart as shown below. With
     \end{center}
     
     
-    \hypertarget{obtain-the-latitude-longitude-address-and-miles-to-work-for-each-neighborhood}{%
-\subsection{Obtain the latitude, longitude, address, and miles to
+### Obtain the latitude, longitude, address, and miles to
 work for each
 neighborhood}\label{obtain-the-latitude-longitude-address-and-miles-to-work-for-each-neighborhood}}
 
@@ -184,9 +180,7 @@ That means Nominatim actually did a wonderful job of searching the
 addresses of our neighborhoods. 
 
              
-    \hypertarget{obtain-venues-around-each-neighborhood}{%
-\subsection{Obtain venues around each
-neighborhood}\label{obtain-venues-around-each-neighborhood}}
+### Obtain venues around each neighborhood
 
  	After finding the coordinates, I wanted to find good amenities around each neighborhood. I was using Fooursquare api for that. I have a free account with them which
 allow me to make 100 k free requests per day. I definitely acknowledge
@@ -219,11 +213,8 @@ amenities is Central West End which is only 3.3 miles away. Then there
 is Downtown, Downtown West, etc. But the distance is not the only thing
 I am looking at. I found that we had these venues belongs to 177 different unique categories.
 
-\newpage
-    \hypertarget{analyze-each-neighborhood-to-find-how-many-unique-catogories-are-belongs-to-each-neighborhood}{%
-\subsection{Analyze Each Neighborhood to find how many unique
-catogories are belongs to each
-neighborhood}\label{analyze-each-neighborhood-to-find-how-many-unique-catogories-are-belongs-to-each-neighborhood}}
+
+### Analyze Each Neighborhood to find how many unique catogories are belongs to each neighborhood
 
     My goal was to find the best neighborhood that has so many different
 amenities close by. I was planning to use the k-means algorithm. For
@@ -255,10 +246,8 @@ your choises are.
 With this, I am done with my data preperation and preliminary analysis
 of the data. Let's move on to real machine learning.
 
-\newpage
-    \hypertarget{methodology---k-means-clustering}{%
-\section{ Methodology - K-means
-Clustering}\label{methodology---k-means-clustering}}
+
+## Methodology - K-means Clustering
 
     For this study, I used K-means clustering algorithm. Since we
 have unlabeled data, I think this will be a very good starting point to
@@ -266,9 +255,7 @@ do an unsupervised algorithm. However, I was not 100 \% sure how many
 clusters to choose. I needed to do some calculations to find the best number
 of clusters
 
-    \hypertarget{choosing-the-best-cluster-number-using-elbow-method}{%
-\subsection{Choosing the best cluster number using elbow
-method}\label{choosing-the-best-cluster-number-using-elbow-method}}
+### Choosing the best cluster number using elbow method
 
 One way to find the right number of for k is use of elbow method. I started from K = 1 and go up to K = 10 and did k-mean clustering for each K value. To find the best K value, I compared the resulted inertia or within-cluster sum-of-squares value. The following figure shows the Inertia vs k value plot.
 
@@ -285,9 +272,7 @@ Therefore, according to the Elbow method, we will consider this point as
 the best number of clusters as beyond this point the improvement of
 distortion is minimal.
 
-\hypertarget{reanalize-data-with-best-k}{%
-\subsection{Reanalyze data with best
-K}\label{reanalize-data-with-best-k}}
+### Reanalyze data with best K
 
 Let's rerun the K-mean method with k = 3. According to the graph, one
 can argue that k = 2, is more accurate. However, since the Distortion
@@ -296,11 +281,7 @@ working well for this problem. This can be further confirmed by plotting
 all data points in the map. Just wait for it.
 
   
-            
-    \hypertarget{creating-an-interactive-map-to-show-the-neighborhoods-and-their-cluster-numbers}{%
-\subsection{Creating an interactive map to show the neighborhoods
-and their cluster
-numbers}\label{creating-an-interactive-map-to-show-the-neigborhoods-and-their-cluster-numbers}}
+### Creating an interactive map to show the neighborhoods and their cluster numbers
 
 Nothing beats to the interactive map of the different neighborhoods. Folium is great at producing an interactive map. Following figure showing an image of the map produced. Different color dots in the map represent the location of neighborhoods analyzed. The colors correspond to different k-mean groups. The balloon icon close to the middle of the map is showing us the location of my workplace. 
 
@@ -310,10 +291,8 @@ Nothing beats to the interactive map of the different neighborhoods. Folium is g
     
 The map showing above was highly interactive. One can zoom the map to see more details around a particular neighborhood. If you click on a colored dot, it can tell you the information about that particular point. I programmed so that when you click on a point it will show us the name of the neighborhood, cluster id, and distance to work. In the figure above, I clicked on the neighborhood 'Baden'. This neighborhood belongs to category 1 and situated in 6.48 miles from my prospective workplace.
     
-\newpage
-            
-    \hypertarget{results}{%
-\section{Results}\label{results}}
+
+ ## Results
 
 The original problem was to find the best neighborhood to have less
 commute time and easy access to close by venues. From a Wikipedia page,
@@ -349,9 +328,7 @@ different values of Ks. Using the elbow method, I found that K = 3 would
 give us the optimum results. All 77 neighborhoods were divided into 3
 categories by K-means.
 
-    \hypertarget{average-cluster-results}{%
-\subsection{4.1 Average cluster
-results}\label{average-cluster-results}}
+### Average cluster results
 
 Let's investigate these three categories (cluster labels) in more details by averaging
 different numbers of data.
@@ -375,10 +352,7 @@ three categories. \textbf{According to these results, my personal choice
 is a K - 2 group due to the closer distance to work and more close by
 venues.}
 
-\newpage
-    \hypertarget{graphical-representation-of-best-neighborhoods}{%
-\subsection{Graphical representation of best
-Neighborhoods}\label{graphical-representation-of-best-neighborhoods}}
+### graphical-representation-of-best-neighborhoods
 
 Let's try to visualize this graphically. I created a bar graph, similar to the one I created during the data section of documents. But this time, other than showing the miles to work on top of each bar, I like to color the bars to show the different groups, as shown in the figure bellow.
 
@@ -394,8 +368,7 @@ Downtown as my top spot which has 50+ closeby venues and only half a
 mile away from the work. If I do not like it, then I go for Downtown
 West, Forest Park South East, etc.
 
-    \hypertarget{discussion}{%
-\section{Discussion}\label{discussion}}
+ ## Discussion
 
 The K-means algorithm was successfully able to suggest the best
 neighborhood to live around St.~Louis. The best neighborhoods I choose
@@ -417,8 +390,7 @@ The neighborhoods towards east which are close to St.~Louis but not
 belongs to Missuiri are not included. I think these neighborhood can be
 included in the study.
 
-    \hypertarget{conclusion}{%
-\section{Conclusion}\label{conclusion}}
+## Conclusion
 
     Using publicly available data and K-mean machine learning algorithm, I
 was able to find several prospective neighborhoods. It is incredible
@@ -436,8 +408,7 @@ All in all, I am very comfortable that this machine learning
 K-clustering was very successful at providing me the best neighborhood
 to live in a foreign city.
 
-    \hypertarget{acknowladgement}{%
-\section{Acknowledgment}\label{acknowladgement}}
+## Acknowledgment
 
 This project was not possible without instructors from IBM - Coursera,
 therefore I thank all the IBM instructors who teach the courses in Data
@@ -446,50 +417,12 @@ Wikipedia and foursquare. This application was initially developed using
 IBM cloud and Watson free account and later completed in Google Colab
 project. I thank both of these services.
 
-    \hypertarget{references}{%
-\section{References}\label{references}}
+## References
 
-\begin{enumerate}
-\def\labelenumi{\arabic{enumi}.}
-\item
-  Main data obtained from the site: \\
+1. Main data obtained from the site: \\
   `https://en.wikipedia.org/wiki/List\_of\_neighborhoods\_of\_St.\_Louis'
-\item
-  Scikit-learn: Machine Learning in Python, Pedregosa et al., JMLR 12,
+
+1. Scikit-learn: Machine Learning in Python, Pedregosa et al., JMLR 12,
   pp.~2825-2830, 2011
-\item
-  Map data provider: https://foursquare.com/
-\end{enumerate}
 
-
-### Markdown
-
-Markdown is a lightweight and easy-to-use syntax for styling your writing. It includes conventions for
-
-```markdown
-Syntax highlighted code block
-
-# Header 1
-## Header 2
-### Header 3
-
-- Bulleted
-- List
-
-1. Numbered
-2. List
-
-**Bold** and _Italic_ and `Code` text
-
-[Link](url) and ![Image](src)
-```
-
-For more details see [GitHub Flavored Markdown](https://guides.github.com/features/mastering-markdown/).
-
-### Jekyll Themes
-
-Your Pages site will use the layout and styles from the Jekyll theme you have selected in your [repository settings](https://github.com/sumedhekaru/Coursera_Capstone/settings). The name of this theme is saved in the Jekyll `_config.yml` configuration file.
-
-### Support or Contact
-
-Having trouble with Pages? Check out our [documentation](https://help.github.com/categories/github-pages-basics/) or [contact support](https://github.com/contact) and we’ll help you sort it out.
+1. Map data provider: https://foursquare.com/
