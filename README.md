@@ -128,10 +128,7 @@ This tabular data can be nicely visualize using a bar chart as shown below. With
 
 My next step was to find additional data for each neighborhood. For this section, I found Latitude, Longitude, Address, and Distance to the workplace. For this, I created a python function that will give me a pandas data frame with all the information mentioned. Following is a sample of the data frame generated using five random rows of data.
 
-	
-  
-![](/report/Battle_of_Neighborhood_V2_files/add_data.png)
-
+![](/Report/Battle_of_Neighborhood_V2_files/add_data.png)
            
 I noticed that Nominatim doesn't always give a valid address for some
 neighborhoods. This behavior can be improved by including the city and
