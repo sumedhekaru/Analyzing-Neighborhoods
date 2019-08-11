@@ -1,6 +1,6 @@
 This is a data science project to find the best neighborhood to live in a faraway city. This project deals with unlabeled data, due to that reason I used an unsupervised algorithm, namely the K-mean algorithm. This project is an excellent example of how effective the K-mean algorithm clustering unlabeled data.
 
-## Introduction - Five Ws
+## 1. Introduction - Five Ws
 
 ### What is the problem?
 
@@ -60,7 +60,7 @@ that you don't know what to do, this is not for you. You should spend
 some money buying a boat and traveling the world instead of reading
 this.
 
-## Data
+## 2.Data
 
 We need data to do our analysis. This section will gather all the
 required data and do the clean-up job so that the data are usable. I am
@@ -97,8 +97,7 @@ know which modules I have used in this project.I have used the following librari
 1. sklearn - To do machine learning algorithms
 
     
-## Get the neighborhood
-
+### Get the neighborhood
 
 We are going to analyze neighborhoods of St.~Louis, Missouri. There
 could be multiple sources that I could get this information about
@@ -133,7 +132,7 @@ My next step was to find additional data for each neighborhood. For this section
 
 	
   
-  ![](\report\Battle_of_Neighborhood_V2_files/add_data.png)
+  ![](/report/Battle_of_Neighborhood_V2_files/add_data.png)
 
            
 I noticed that Nominatim doesn't always give a valid address for some
@@ -217,7 +216,7 @@ With this, I am done with my data preperation and preliminary analysis
 of the data. Let's move on to real machine learning.
 
 
-## Methodology - K-means Clustering
+## 3. Methodology - K-means Clustering
 
 For this study, I used K-means clustering algorithm. Since we
 have unlabeled data, I think this will be a very good starting point to
@@ -261,7 +260,7 @@ Nothing beats to the interactive map of the different neighborhoods. Folium is g
 The map showing above was highly interactive. One can zoom the map to see more details around a particular neighborhood. If you click on a colored dot, it can tell you the information about that particular point. I programmed so that when you click on a point it will show us the name of the neighborhood, cluster id, and distance to work. In the figure above, I clicked on the neighborhood 'Baden'. This neighborhood belongs to category 1 and situated in 6.48 miles from my prospective workplace.
     
 
- ## Results
+ ## 4. Results
 
 The original problem was to find the best neighborhood to have less
 commute time and easy access to close by venues. From a Wikipedia page,
@@ -331,7 +330,7 @@ Downtown as my top spot which has 50+ closeby venues and only half a
 mile away from the work. If I do not like it, then I go for Downtown
 West, Forest Park South East, etc.
 
- ## Discussion
+ ## 5. Discussion
 
 The K-means algorithm was successfully able to suggest the best
 neighborhood to live around St.~Louis. The best neighborhoods I choose
@@ -353,7 +352,7 @@ The neighborhoods towards east which are close to St.~Louis but not
 belongs to Missuiri are not included. I think these neighborhood can be
 included in the study.
 
-## Conclusion
+## 6. Conclusion
 
 Using publicly available data and K-mean machine learning algorithm, I
 was able to find several prospective neighborhoods. It is incredible
@@ -371,7 +370,7 @@ All in all, I am very comfortable that this machine learning
 K-clustering was very successful at providing me the best neighborhood
 to live in a foreign city.
 
-## Acknowledgment
+## 7. Acknowledgment
 
 This project was not possible without instructors from IBM - Coursera,
 therefore I thank all the IBM instructors who teach the courses in Data
@@ -380,7 +379,7 @@ Wikipedia and foursquare. This application was initially developed using
 IBM cloud and Watson free account and later completed in Google Colab
 project. I thank both of these services.
 
-## References
+## 8. References
 
 1. Main data obtained from the site: \\
   `https://en.wikipedia.org/wiki/List\_of\_neighborhoods\_of\_St.\_Louis'
