@@ -124,9 +124,7 @@ This tabular data can be nicely visualize using a bar chart as shown below. With
 
 ![](/Report/Battle_of_Neighborhood_V2_files/Battle_of_Neighborhood_V2_17_0.png)
     
-### Obtain the latitude, longitude, address, and miles to
-work for each
-neighborhood}\label{obtain-the-latitude-longitude-address-and-miles-to-work-for-each-neighborhood}}
+### Obtain the latitude, longitude, address, and miles to work for each neighborhood
 
 My next step was to find additional data for each neighborhood. For this section, I found Latitude, Longitude, Address, and Distance to the workplace. For this, I created a python function that will give me a pandas data frame with all the information mentioned. Following is a sample of the data frame generated using five random rows of data.
 
@@ -163,7 +161,6 @@ addresses of our neighborhoods.
 After finding the coordinates, I wanted to find good amenities around each neighborhood. I was using Fooursquare api for that. I have a free account with them which
 allow me to make 100 k free requests per day. I definitely acknowledge
 their service. I crated another important function accomplish this. What this function does is produce a data frame that contains the information nearby amenities, up to a 100 of those. Following data frame is the result of this function.
-
 
 ![](/Report/Battle_of_Neighborhood_V2_files/foursquare.png)
    
@@ -243,11 +240,7 @@ distortion is minimal.
 
 ### Reanalyze data with best K
 
-Let's rerun the K-mean method with k = 3. According to the graph, one
-can argue that k = 2, is more accurate. However, since the Distortion
-change is significant from k = 2 to k = 3, I choose k = 3. I found that resulted clustering labels for each cluster. The labels are nicely randomly distributed. This was actually a good sign that K-means was appropriate and
-working well for this problem. This can be further confirmed by plotting
-all data points in the map. Just wait for it.
+Let's rerun the K-mean method with k = 3. According to the graph, one can argue that k = 2, is more accurate. However, since the Distortion change is significant from k = 2 to k = 3, I choose k = 3. I found that resulted clustering labels for each cluster. The labels are nicely randomly distributed. This was actually a good sign that K-means was appropriate and working well for this problem. This can be further confirmed by plotting all data points in the map. Just wait for it.
 
   
 ### Creating an interactive map to show the neighborhoods and their cluster numbers
@@ -259,8 +252,7 @@ Nothing beats to the interactive map of the different neighborhoods. Folium is g
     
 The map showing above was highly interactive. One can zoom the map to see more details around a particular neighborhood. If you click on a colored dot, it can tell you the information about that particular point. I programmed so that when you click on a point it will show us the name of the neighborhood, cluster id, and distance to work. In the figure above, I clicked on the neighborhood 'Baden'. This neighborhood belongs to category 1 and situated in 6.48 miles from my prospective workplace.
     
-
- ## 4. Results
+## 4. Results
 
 The original problem was to find the best neighborhood to have less
 commute time and easy access to close by venues. From a Wikipedia page,
@@ -330,7 +322,7 @@ Downtown as my top spot which has 50+ closeby venues and only half a
 mile away from the work. If I do not like it, then I go for Downtown
 West, Forest Park South East, etc.
 
- ## 5. Discussion
+## 5. Discussion
 
 The K-means algorithm was successfully able to suggest the best
 neighborhood to live around St.~Louis. The best neighborhoods I choose
