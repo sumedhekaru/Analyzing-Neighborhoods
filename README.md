@@ -1,4 +1,4 @@
-This is a data science project to find the best neighborhood to live in a faraway city. This project deals with unlabeled data, due to that reason I used an unsupervised algorithm, namely the K-mean algorithm. This project is an excellent example of how effective the K-mean algorithm clustering unlabeled data.
+This is a data science project to find the best neighborhood to live in a far away city. This project deals with unlabeled data, due to that reason I used an unsupervised algorithm, namely the K-mean algorithm. This project is an excellent example of how effective the K-mean algorithm clustering unlabeled data.
 
 ## 1. Introduction - Five Ws
 
